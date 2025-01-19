@@ -22,12 +22,16 @@ function handleTogleItem(id){
   setItems((items) => items.map((item) => item.id === id ? {...item, checked: !item.checked}: item))
 }
 
+function handleDeleteItems(){
+  setItems([]);
+}
+
   return (
     <div className="app">
       <Headers/>
       <Form onAddItem={handleAddItem}/>
-      <GroceryList items={items} onDeleteItem={handleDeleteItem} onTogleItem={handleTogleItem}/>
-      <Footer/>
+      <GroceryList items={items} onDeleteItem={handleDeleteItem} onTogleItem={handleTogleItem} onDeleteItems={handleDeleteItems}/>
+      <Footer items={items}/>
     </div>
   )
 }
