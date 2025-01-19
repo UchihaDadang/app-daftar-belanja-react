@@ -1,20 +1,13 @@
 import { Item } from "./GorceryListItem";
-import { groceryItems } from "../assets/gorceryItems";
-import { useState } from "react";
 
-function GroceryList() {
-    const [isChecked, setIsChecked] = useState(false);
-  
-    function handleChacked() {
-      setIsChecked(!isChecked);
-    };
-  
+function GroceryList({items, onDeleteItem, onTogleItem}) {
+
   return(
     <>
     <div className="list">
       <ul>
-        {groceryItems.map((item) => (
-          <Item item={item} key={item.id} checked={handleChacked} isCheck={isChecked}/>
+        {items.map((item) => (
+          <Item item={item} key={item.id} onDeleteItem={onDeleteItem} onTogleItem={onTogleItem}/>
         ))}
       </ul>
     </div>
